@@ -1,0 +1,13 @@
+site_name: ''
+theme:
+  name: 'material'
+  logo: 'images/logo.svg'
+  favicon: 'images/favicon.ico'
+  palette:
+    primary: 'white'
+    accent: 'yellow '
+extra_css:
+  - 'stylesheets/oaknorth.css'
+extra_javascript:
+  - 'https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js'
+dev_addr: 172.20.5.135:8086

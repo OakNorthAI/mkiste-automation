@@ -1,0 +1,45 @@
+.md-header {
+    background-color: #6c712c
+}
+
+.md-nav__link--active {
+    color: #ee6252
+}
+
+.md-flex__cell--shrink {
+    width: 0px;
+}
+
+.md-header-nav__button.md-logo * {
+    display: block;
+    background-color: white;
+    width: 108px;
+    height: 53px;
+}
+
+.md-header-nav__button {
+    padding: 0px;
+    margin: 0px;
+}
+
+.md-grid {
+    max-width: 80rem;
+}
+
+@media only screen and (min-width: 76.25em) {
+    .md-sidebar--secondary {
+        margin-left: 80rem;
+    }
+}
+
+/*@media only screen and (min-width: 76.25em) {
+  .md-content__inner {
+    margin-right: 0.8rem;
+  }
+}*/
+
+/*@media only screen and (min-width: 60em) {
+  .md-content {
+    margin-right: 0;
+  }
+}*/

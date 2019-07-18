@@ -29,7 +29,8 @@ cd $1
 sudo git checkout develop
 sudo git pull origin develop
 
-if [ -d ./serve/docs ]; then
+if [ -d ./serve/docs ]
+  then
    sudo rm -r ./serve/docs
 fi
 
