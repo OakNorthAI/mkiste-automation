@@ -31,7 +31,7 @@ sudo git pull origin develop
 
 if [ -d ./serve/docs ]
   then
-   sudo rm -r ./serve/docs
+   sudo rm -rf ./serve/docs
 fi
 
 sudo mkdir -p ./serve/docs
