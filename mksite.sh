@@ -2,20 +2,22 @@
 
 shopt -s extglob
 set -e
-trap 'echo "\"${last_command}\" command filed with exit code $?."' EXIT
+trap 'echo "Command filed with exit code $?."' EXIT
 
 if [ $# -eq 0 ]
   then
-    echo "No arguments supplied"
+          echo "Please provide the project name (and the port number).If no port number is given the default wll be used (8086).  ex: \"./mksite.sh elysium 8086\""
   exit 1
 fi
 
-PID=$(ps aux | grep '/opt/tljh/user/bin/python3.6 /opt/tljh/user/bin/mkdocs' | awk '{print $2}')
+PORT=8086
 
-if [ ! -z "$PID" ]
+if [[ -n $2 ]]
   then
-    sudo kill $PID
+    PORT=$2
 fi
+
+sudo lsof -ti tcp:$PORT | xargs --no-run-if-empty sudo kill -9
 
 cd /srv/mksite
 
@@ -23,16 +25,23 @@ if [ ! -d "$1" ]
   then
     sudo git clone /srv/repo/$1.git
 fi
-                                                                                                                                                                                                 1,1           Top
+
 cd $1
 
 sudo git checkout develop
 sudo git pull origin develop
 
-if [ -d ./serve/docs ]
+if [[ -d ./serve/docs ]]
   then
    sudo rm -rf ./serve/docs
 fi
+
+sudo mkdir -p ./serve/docs
+sudo mkdir -p ./serve/docs/images
+sudo mkdir -p ./serve/docs/stylesheets
+
+sudo cp ../mkdocs.yml ./serve/
+sudo cp !(__*).ipynb ./serve/docs/
 
 sudo mkdir -p ./serve/docs
 sudo mkdir -p ./serve/docs/images
