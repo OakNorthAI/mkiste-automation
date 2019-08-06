@@ -43,13 +43,6 @@ sudo mkdir -p ./serve/docs/stylesheets
 sudo cp ../mkdocs.yml ./serve/
 sudo cp !(__*).ipynb ./serve/docs/
 
-sudo mkdir -p ./serve/docs
-sudo mkdir -p ./serve/docs/images
-sudo mkdir -p ./serve/docs/stylesheets
-
-sudo cp ../mkdocs.yml ./serve/
-sudo cp !(__*).ipynb ./serve/docs/
-
 cd ./serve/docs
 sudo jupyter nbconvert --to markdown --TemplateExporter.exclude_code_cell=False --TemplateExporter.exclude_input=True *.ipynb
 sudo rm *.ipynb
